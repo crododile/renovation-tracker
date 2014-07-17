@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'inspections#form'
+  
   resources :inspectors
 
   resources :inspections
@@ -7,7 +9,9 @@ Rails.application.routes.draw do
 
   resources :properties
   
-  root 'inspections#form'
+  get 'property_units/:id' => 'properties#units'
+  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

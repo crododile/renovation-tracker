@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  before_action :set_property, only: [:show, :edit, :update, :destroy]
+  before_action :set_property, only: [:show, :edit, :update, :destroy, :units]
 
   # GET /properties
   # GET /properties.json
@@ -11,6 +11,11 @@ class PropertiesController < ApplicationController
   # GET /properties/1.json
   def show
   end
+  
+  def units
+    render :json => @property.currentunits.order('unit_number ASC').uniq.pluck('unit_number')
+  end
+
 
   # GET /properties/new
   def new

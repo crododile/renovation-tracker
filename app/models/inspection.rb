@@ -16,4 +16,7 @@
 #
 
 class Inspection < ActiveRecord::Base
+  validates :property, presence: true
+  validates :inspector, presence: true
+  validates :unit_number, presence: true
 end

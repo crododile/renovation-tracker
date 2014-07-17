@@ -11,17 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" id="property-dropdown">
     <%= f.label :property %><br>
-    <%= collection_select(:property, :property_id, Property.all, :id, :name, prompt: true)%>
+    <%= collection_select(:inspection, :property, Property.all, :property, :property, prompt: true)%>
   </div>
-  <div class="field">
+	<script>propertyDropdownListener()</script>
+
+  <div class="field" id="unit-dropdown">
     <%= f.label :unit_number %><br>
-    <%= f.text_field :unit_number %>
+    <%= collection_select(:inspection, :unit_number, [], :unit_number, :unit_number, prompt: true)  %>
   </div>
   <div class="field">
     <%= f.label :inspector %><br>
-    <%= f.text_field :inspector %>
+    <%= collection_select(:inspection, :inspector, Inspector.all, :inspector, :inspector, prompt: true) %>
   </div>
   <div class="field">
     <%= f.label :occupied_rehab %><br>
