@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: currentunits
+#
+#  id          :integer          not null, primary key
+#  property    :string(255)
+#  unit_number :string(255)
+#  unit_type   :string(255)
+#  square_feet :string(255)
+#  rent        :string(255)
+#  date        :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  property: MyString
+  unit_number: MyString
+  unit_type: MyString
+  square_feet: MyString
+  rent: MyString
+  date: MyString
+
+two:
+  property: MyString
+  unit_number: MyString
+  unit_type: MyString
+  square_feet: MyString
+  rent: MyString
+  date: MyString

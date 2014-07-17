@@ -1,0 +1,45 @@
+<%= form_for(@inspection) do |f| %>
+  <% if @inspection.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inspection.errors.count, "error") %> prohibited this inspection from being saved:</h2>
+
+      <ul>
+      <% @inspection.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :property %><br>
+    <%= collection_select(:property, :property_id, Property.all, :id, :name, prompt: true)%>
+  </div>
+  <div class="field">
+    <%= f.label :unit_number %><br>
+    <%= f.text_field :unit_number %>
+  </div>
+  <div class="field">
+    <%= f.label :inspector %><br>
+    <%= f.text_field :inspector %>
+  </div>
+  <div class="field">
+    <%= f.label :occupied_rehab %><br>
+    <%= f.text_field :occupied_rehab %>
+  </div>
+  <div class="field">
+    <%= f.label :turn_rehab %><br>
+    <%= f.text_field :turn_rehab %>
+  </div>
+  <div class="field">
+    <%= f.label :inspection_date %><br>
+    <%= f.text_field :inspection_date %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br>
+    <%= f.text_field :comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

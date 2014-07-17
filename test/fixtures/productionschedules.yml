@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: productionschedules
+#
+#  id                  :integer          not null, primary key
+#  property            :string(255)
+#  unit                :string(255)
+#  componentrehabdate  :string(255)
+#  floorapplirehabdate :string(255)
+#  blank               :string(255)
+#  created_at          :datetime
+#  updated_at          :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  property: MyString
+  unit: MyString
+  componentrehabdate: MyString
+  floorapplirehabdate: MyString
+  blank: MyString
+
+two:
+  property: MyString
+  unit: MyString
+  componentrehabdate: MyString
+  floorapplirehabdate: MyString
+  blank: MyString
