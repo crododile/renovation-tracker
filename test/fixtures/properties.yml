@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: properties
+#
+#  id             :integer          not null, primary key
+#  fund           :string(255)
+#  manager        :string(255)
+#  property       :string(255)
+#  units          :string(255)
+#  city           :string(255)
+#  state          :string(255)
+#  purchase_price :string(255)
+#  twophaserehab  :string(255)
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fund: MyString
+  manager: MyString
+  property: MyString
+  units: MyString
+  city: MyString
+  state: MyString
+  purchase_price: MyString
+  twophaserehab: MyString
+
+two:
+  fund: MyString
+  manager: MyString
+  property: MyString
+  units: MyString
+  city: MyString
+  state: MyString
+  purchase_price: MyString
+  twophaserehab: MyString
