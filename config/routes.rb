@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'inspections#form'
+  root 'inspections#new'
   
   resources :inspectors
 
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :properties
   
+  #for poplulating dropdown
   get 'property_units/:id' => 'properties#units'
   
 
