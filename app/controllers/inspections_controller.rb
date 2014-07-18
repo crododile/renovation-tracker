@@ -11,11 +11,6 @@ class InspectionsController < ApplicationController
   # GET /inspections/1.json
   def show
   end
-  
-  def john
-    render 'john'
-  end
-
 
   # GET /inspections/new
   def new
