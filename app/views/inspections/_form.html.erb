@@ -26,12 +26,20 @@
     <%= collection_select(:inspection, :inspector, Inspector.all, :inspector, :inspector, prompt: true) %>
   </div>
   <div class="field">
-    <%= f.label :occupied_rehab %><br>
-    <%= f.text_field :occupied_rehab %>
+    <%= f.label :components %><br>
+    <%= f.check_box :components %>
   </div>
   <div class="field">
-    <%= f.label :turn_rehab %><br>
-    <%= f.text_field :turn_rehab %>
+    <%= f.label :granite %><br>
+    <%= f.check_box :granite %>
+  </div>
+  <div class="field">
+    <%= f.label :flooring %><br>
+    <%= f.check_box :flooring %>
+  </div>
+  <div class="field">
+    <%= f.label :appliances %><br>
+    <%= f.check_box :appliances %>
   </div>
   <div class="field">
     <%= f.label :inspection_date %><br>

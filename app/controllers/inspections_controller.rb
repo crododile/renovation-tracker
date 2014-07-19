@@ -28,7 +28,7 @@ class InspectionsController < ApplicationController
 
     respond_to do |format|
       if @inspection.save
-        format.html { redirect_to @inspection, notice: 'Inspection was successfully created.' }
+        format.html { redirect_to new_inspection_url, notice: 'Inspection was successfully created.' }
         format.json { render :show, status: :created, location: @inspection }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class InspectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inspection_params
-      params.require(:inspection).permit(:property, :unit_number, :inspector, :occupied_rehab, :turn_rehab, :inspection_date, :comments)
+      params.require(:inspection).permit(:property, :unit_number, :inspector, :granite, :flooring, :components, :appliances, :inspection_date, :comments)
     end
 end
