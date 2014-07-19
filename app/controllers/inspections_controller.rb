@@ -25,7 +25,6 @@ class InspectionsController < ApplicationController
   # POST /inspections.json
   def create
     @inspection = Inspection.new(inspection_params)
-
     respond_to do |format|
       if @inspection.save
         format.html { redirect_to new_inspection_url, notice: 'Inspection was successfully created.' }

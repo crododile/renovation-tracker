@@ -27,23 +27,43 @@
   </div>
   <div class="field">
     <%= f.label :components %><br>
-    <%= f.check_box :components %>
+		Yes
+		<%= f.radio_button :components, true %>
+		NO
+		<%= f.radio_button :components, false %>
+		Not answering right now
+		<%= f.radio_button :components, ""%>
   </div>
   <div class="field">
     <%= f.label :granite %><br>
-    <%= f.check_box :granite %>
+		Yes
+		<%= f.radio_button :granite, true %>
+		NO
+		<%= f.radio_button :granite, false %>
+		Not answering right now
+		<%= f.radio_button :granite, ""%>
   </div>
   <div class="field">
     <%= f.label :flooring %><br>
-    <%= f.check_box :flooring %>
+		Yes
+		<%= f.radio_button :flooring, true %>
+		NO
+		<%= f.radio_button :flooring, false %>
+		Not answering right now
+		<%= f.radio_button :flooring, ""%>
   </div>
   <div class="field">
     <%= f.label :appliances %><br>
-    <%= f.check_box :appliances %>
+		Yes
+		<%= f.radio_button :appliances, true %>
+		NO
+		<%= f.radio_button :appliances, false %>
+		Not answering right now
+		<%= f.radio_button :appliances, ""%>
   </div>
   <div class="field">
     <%= f.label :inspection_date %><br>
-    <%= f.text_field :inspection_date %>
+    <%= f.date_field :inspection_date, :value => Time.now.strftime("%Y-%m-%d")%>
   </div>
   <div class="field">
     <%= f.label :comments %><br>
