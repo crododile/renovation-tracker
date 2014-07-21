@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<strong>Property:</strong> 		    <p><%= @currentunit.property%></p>
+<strong>Unit Number:</strong>		    <p><%= @currentunit.unit_number%></p>
+<strong>Unit Type:</strong>		    <p><%= @currentunit.unit_type%></p>
+<strong>Square Feet:</strong>		    <p><%= @currentunit.square_feet%></p>
+<strong>Rent:</strong>        <p><%= @currentunit.rent%></p>
+<strong>Date:</strong>        <p><%= @currentunit.date%></p>
+
+<%= link_to 'Edit', edit_currentunit_path(@currentunit) %> |
+<%= link_to 'Back', currentunits_path %>
