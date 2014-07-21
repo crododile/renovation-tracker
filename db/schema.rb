@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140721010516) do
+ActiveRecord::Schema.define(version: 20140721012442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,16 +74,6 @@ ActiveRecord::Schema.define(version: 20140721010516) do
   create_table "properties_currentunits", id: false, force: true do |t|
     t.integer "properties_id"
     t.integer "units_id"
-  end
-
-  create_table "unitcosts", force: true do |t|
-    t.string   "property"
-    t.string   "unit"
-    t.string   "cost"
-    t.string   "budget"
-    t.string   "date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
 end
