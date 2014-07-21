@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :currentunits
+
   root 'inspections#new'
   
   resources :inspectors
