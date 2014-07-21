@@ -31,8 +31,7 @@
 		<%= f.radio_button :components, true %>
 		NO
 		<%= f.radio_button :components, false %>
-		Not answering right now
-		<%= f.radio_button :components, ""%>
+		<%= f.radio_button :components, "", :style => "display: none;"%>
   </div>
   <div class="field">
     <%= f.label :granite %><br>
@@ -40,8 +39,7 @@
 		<%= f.radio_button :granite, true %>
 		NO
 		<%= f.radio_button :granite, false %>
-		Not answering right now
-		<%= f.radio_button :granite, ""%>
+		<%= f.radio_button :granite, "", :style => "display: none;"%>
   </div>
   <div class="field">
     <%= f.label :flooring %><br>
@@ -49,8 +47,7 @@
 		<%= f.radio_button :flooring, true %>
 		NO
 		<%= f.radio_button :flooring, false %>
-		Not answering right now
-		<%= f.radio_button :flooring, ""%>
+		<%= f.radio_button :flooring, "", :style => "display: none;"%>
   </div>
   <div class="field">
     <%= f.label :appliances %><br>
@@ -58,8 +55,7 @@
 		<%= f.radio_button :appliances, true %>
 		NO
 		<%= f.radio_button :appliances, false %>
-		Not answering right now
-		<%= f.radio_button :appliances, ""%>
+		<%= f.radio_button :appliances, "", :style => "display: none;"%>
   </div>
   <div class="field">
     <%= f.label :inspection_date %><br>
