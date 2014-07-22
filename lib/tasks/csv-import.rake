@@ -64,14 +64,14 @@ task :csv_to_pg => :environment do
     "UnitCost"
   ]
   
-  TABLES.each do |table|
-    relative_path = "../../assets/j-tables/"<< table <<".csv"
+
+    relative_path = "../../assets/unitlist.csv"
     full_path = File.expand_path(relative_path, __FILE__)
     # create_model_from_csv full_path, table
     # p "migrating"
     # system "rake db:migrate"
     p "copying"
-    copy_table_from_csv full_path, table
+    copy_table_from_csv full_path, "CurrentUnit"
     p "done, now go write your model!"
-  end
+
 end
