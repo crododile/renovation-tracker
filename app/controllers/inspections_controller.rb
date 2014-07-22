@@ -25,6 +25,7 @@ class InspectionsController < ApplicationController
   # POST /inspections.json
   def create
     @inspection = Inspection.new(inspection_params)
+    @inspection.
     respond_to do |format|
       if @inspection.save
         format.html { redirect_to new_inspection_url, notice: 'Inspection was successfully created.' }
@@ -65,6 +66,12 @@ class InspectionsController < ApplicationController
     def set_inspection
       @inspection = Inspection.find(params[:id])
     end
+    
+    #prepare photos for save
+    def image_params
+      params.require(:inspection).permit(:image)
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inspection_params

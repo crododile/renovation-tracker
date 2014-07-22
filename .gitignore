@@ -17,3 +17,5 @@
 
 #ignore the excel tables
 /assets/j-tables/*
+# Ignore application configuration
+/config/application.yml
