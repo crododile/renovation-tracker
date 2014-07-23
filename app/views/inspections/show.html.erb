@@ -45,5 +45,13 @@
   <%= @inspection.comments %>
 </p>
 
+<div>
+	<strong>Images:</strong><br>
+	<% @inspection.inspection_images.each do |img| %>
+		<%= image_tag img.inspection_photo.url(:big)%>
+		<br>
+	<% end %>
+</div>
+
 <%= link_to 'Edit', edit_inspection_path(@inspection) %> |
 <%= link_to 'Back', inspections_path %>

@@ -49,8 +49,6 @@
 		<%= f.radio_button :flooring, false %>
 		<%= f.radio_button :flooring, "", :style => "display: none;"%>
   </div>
-  <input type="file" accept="image/*" capture>
-	
   <div class="field">
     <%= f.label :appliances %><br>
 		Yes
@@ -67,6 +65,10 @@
     <%= f.label :comments %><br>
     <%= f.text_field :comments %>
   </div>
+	<div class="field">
+	  <%= f.label :image %>
+		<%= f.file_field :image, :accept => "image/*", :multiple => true%>
+	</div>
   <div class="actions">
     <%= f.submit %>
   </div>
