@@ -1,5 +1,9 @@
 <h1>Listing inspections</h1>
-
+<p> 
+	Download:
+	<%= link_to "CSV", inspections_path(format: "csv")%> 
+	<%= link_to "Excel", inspections_path(format: "xls")%> 
+</p>
 <table>
   <thead>
     <tr>
