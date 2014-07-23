@@ -1,13 +1,11 @@
 var propertyDropdownListener = function(){
 document.addEventListener("page:change", function () {	
 	var drop = document.getElementById("property-dropdown");
-
 	drop.onchange = function () {
 		var propertyId = event.target.selectedIndex;
 		var targetUrl = "/property_units/" + propertyId + ".json";
 		function loadXMLDoc(url) {
 		    var xmlhttp;
-
 		    if (window.XMLHttpRequest) {
 		        // code for IE7+, Firefox, Chrome, Opera, Safari
 		        xmlhttp = new XMLHttpRequest();
@@ -15,7 +13,6 @@ document.addEventListener("page:change", function () {
 		        // code for IE6, IE5
 		        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 		    }
-
 		    xmlhttp.onreadystatechange = function() {
 		        if (xmlhttp.readyState == 4 ) {
 		           if(xmlhttp.status == 200){
@@ -36,11 +33,9 @@ document.addEventListener("page:change", function () {
 		           }
 		        }
 		    }
-
 		    xmlhttp.open("GET", url, true);
 		    xmlhttp.send();
 		};
-		
 		loadXMLDoc(targetUrl);
 	};
 });
