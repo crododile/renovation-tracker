@@ -5,6 +5,11 @@ class InspectionsController < ApplicationController
   # GET /inspections.json
   def index
     @inspections = Inspection.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @inspections.to_csv }
+      format.xls { send_data @inspections.to_csv(col_sep: "\t")}
+    end
   end
 
   # GET /inspections/1
@@ -25,7 +30,8 @@ class InspectionsController < ApplicationController
   # POST /inspections.json
   def create
     @inspection = Inspection.new(inspection_params)
-    image_params["image"].each do |img|
+
+    image_params["image"] && image_params["image"].each do |img|
       @inspection.inspection_images.build({:inspection_photo => img})
     end
     respond_to do |format|

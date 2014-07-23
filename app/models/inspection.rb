@@ -23,4 +23,16 @@ class Inspection < ActiveRecord::Base
   validates :unit_number, presence: true
   
   has_many :inspection_images
+  require 'csv'
+  
+  def self.to_csv( options = {})
+    CSV.generate( options ) do |csv|
+      wanted = column_names - ["created_at", "updated_at"]
+      csv << wanted
+      all.each do |inspection|
+        csv << inspection.attributes.values_at(*wanted)
+      end
+    end
+  end
+
 end
