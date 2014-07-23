@@ -1,5 +1,5 @@
 var propertyDropdownListener = function(){
-document.addEventListener("DOMContentLoaded", function () {	
+document.addEventListener("page:change", function () {	
 	var drop = document.getElementById("property-dropdown");
 
 	drop.onchange = function () {

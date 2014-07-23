@@ -25,7 +25,9 @@ class InspectionsController < ApplicationController
   # POST /inspections.json
   def create
     @inspection = Inspection.new(inspection_params)
-    @inspection.
+    image_params["image"].each do |img|
+      @inspection.inspection_images.build({:inspection_photo => img})
+    end
     respond_to do |format|
       if @inspection.save
         format.html { redirect_to new_inspection_url, notice: 'Inspection was successfully created.' }
@@ -69,7 +71,7 @@ class InspectionsController < ApplicationController
     
     #prepare photos for save
     def image_params
-      params.require(:inspection).permit(:image)
+      params.require(:inspection).permit(:image => [])
     end
 
 
