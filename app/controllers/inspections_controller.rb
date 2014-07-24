@@ -30,10 +30,7 @@ class InspectionsController < ApplicationController
   # POST /inspections.json
   def create
     @inspection = Inspection.new(inspection_params)
-
-    image_params["image"] && image_params["image"].each do |img|
-      @inspection.inspection_images.build({:inspection_photo => img})
-    end
+    _save_images
     respond_to do |format|
       if @inspection.save
         format.html { redirect_to new_inspection_url, notice: 'Inspection was successfully created.' }
@@ -48,6 +45,7 @@ class InspectionsController < ApplicationController
   # PATCH/PUT /inspections/1
   # PATCH/PUT /inspections/1.json
   def update
+    _save_images
     respond_to do |format|
       if @inspection.update(inspection_params)
         format.html { redirect_to @inspection, notice: 'Inspection was successfully updated.' }
@@ -78,6 +76,12 @@ class InspectionsController < ApplicationController
     #prepare photos for save
     def image_params
       params.require(:inspection).permit(:image => [])
+    end
+    
+    def _save_images
+      image_params["image"] && image_params["image"].each do |img|
+        @inspection.inspection_images.build({:inspection_photo => img})
+      end
     end
 
 
