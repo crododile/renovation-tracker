@@ -1,4 +1,5 @@
 class InspectorsController < ApplicationController
+  before_action :require_admin
   before_action :set_inspector, only: [:show, :edit, :update, :destroy]
 
   # GET /inspectors

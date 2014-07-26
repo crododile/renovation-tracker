@@ -1,4 +1,5 @@
 class PropertiesController < ApplicationController
+  before_action :require_admin
   before_action :set_property, only: [:show, :edit, :update, :destroy, :units]
 
   # GET /properties
