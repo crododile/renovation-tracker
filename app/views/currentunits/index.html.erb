@@ -1,4 +1,18 @@
 <h1>Listing currentunits</h1>
+<p>
+	Download: 
+	<%= link_to "CSV", currentunits_path(format: "csv")%> 
+	<%= link_to "Excel", currentunits_path(format: "xls")%> 
+
+
+<%= form_tag replace_currentunits_path, multipart: true do %>
+<h3> Replace Units Table </h3>
+	<div id="spreadsheet-field" class="field">
+		<%= file_field_tag :new_unit_list, :accept => "*.csv"%><br>
+		<%= submit_tag "Import" %>
+	</div>
+<% end %>
+</p>
 
 <table>
   <thead>
@@ -27,3 +41,4 @@
 <br>
 
 <%= link_to 'New Currentunit', new_currentunit_path %>
+

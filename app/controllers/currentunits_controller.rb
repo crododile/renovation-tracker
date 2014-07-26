@@ -5,6 +5,16 @@ class CurrentunitsController < ApplicationController
   # GET /currentunits.json
   def index
     @currentunits = Currentunit.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @currentunits.to_csv }
+      format.xls { send_data @currentunits.to_csv(col_sep: "\t")}
+    end
+  end
+  
+  def replace
+    Currentunit.import(params[:new_unit_list])
+    redirect_to currentunits_path, notice: "Units Imported"
   end
 
   # GET /currentunits/1

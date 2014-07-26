@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  resources :currentunits
-
   root 'inspections#new'
   
   resources :inspectors
 
   resources :inspections
 
-  resources :units
+  resources :currentunits do
+    post 'replace', :on => :collection
+  end
 
   resources :properties
   
