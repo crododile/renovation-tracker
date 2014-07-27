@@ -41,7 +41,6 @@ class InspectionsController < ApplicationController
     respond_to do |format|
       if @inspection.save
         _update_attachments_column unless @inspection.inspection_images.empty?
-        debugger
         format.html { redirect_to newtoo_inspection_url(@inspection), notice: 'Inspection was successfully created.' }
         format.json { render :show, status: :created, location: @inspection }
       else

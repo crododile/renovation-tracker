@@ -22,7 +22,7 @@ class Inspection < ActiveRecord::Base
   validates :inspector, presence: true
   validates :unit_number, presence: true
   
-  has_many :inspection_images
+  has_many :inspection_images, dependent: :destroy
   require 'csv'
   
   def neighbors
