@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   
   resources :sessions, :only => [:new, :create, :destroy]
 
-  resources :inspections
+  resources :inspections do
+    get "newtoo", on: :member
+  end
 
   resources :currentunits do
     post 'replace', :on => :collection

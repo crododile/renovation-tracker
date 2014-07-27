@@ -1,6 +1,6 @@
 class InspectionsController < ApplicationController
   before_action :require_admin
-  before_action :set_inspection, only: [:show, :edit, :update, :destroy]
+  before_action :set_inspection, only: [:show, :newtoo, :edit, :update, :destroy]
 
   # GET /inspections
   # GET /inspections.json
@@ -22,7 +22,13 @@ class InspectionsController < ApplicationController
   def new
     @inspection = Inspection.new
   end
-
+  
+  def newtoo
+    @inspection = @inspection.dup
+    @inspection.unit_number = nil
+    render 'new'
+  end
+  
   # GET /inspections/1/edit
   def edit
   end
@@ -35,7 +41,8 @@ class InspectionsController < ApplicationController
     respond_to do |format|
       if @inspection.save
         _update_attachments_column unless @inspection.inspection_images.empty?
-        format.html { redirect_to new_inspection_url, notice: 'Inspection was successfully created.' }
+        debugger
+        format.html { redirect_to newtoo_inspection_url(@inspection), notice: 'Inspection was successfully created.' }
         format.json { render :show, status: :created, location: @inspection }
       else
         format.html { render :new }

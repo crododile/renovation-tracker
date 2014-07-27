@@ -25,6 +25,10 @@ class Inspection < ActiveRecord::Base
   has_many :inspection_images
   require 'csv'
   
+  def neighbors
+    Property.find_by_property(self.property ||= "Veridian").currentunits
+  end
+  
   def self.to_csv( options = {})
     CSV.generate( options ) do |csv|
       wanted = column_names - ["created_at", "updated_at"]

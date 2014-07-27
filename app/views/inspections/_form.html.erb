@@ -19,7 +19,7 @@
 
   <div class="field" id="unit-dropdown">
     <%= f.label :unit_number %><br>
-    <%= collection_select(:inspection, :unit_number, [], :unit_number, :unit_number, prompt: true)  %>
+    <%= collection_select(:inspection, :unit_number, @inspection.neighbors, :unit_number, :unit_number, prompt: true)  %>
   </div>
   <div class="field">
     <%= f.label :inspector %><br>
