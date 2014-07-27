@@ -34,6 +34,7 @@ class InspectionsController < ApplicationController
     _save_images
     respond_to do |format|
       if @inspection.save
+        _update_attachments_column unless @inspection.inspection_images.empty?
         format.html { redirect_to new_inspection_url, notice: 'Inspection was successfully created.' }
         format.json { render :show, status: :created, location: @inspection }
       else
@@ -83,6 +84,15 @@ class InspectionsController < ApplicationController
       image_params["image"] && image_params["image"].each do |img|
         @inspection.inspection_images.build({:inspection_photo => img})
       end
+    end
+    
+    def _update_attachments_column
+      @inspection.inspection_images.each do |img|
+        @inspection.attachments ||= ""
+        @inspection.attachments << img.inspection_photo.url << ", "
+      end
+      @inspection.attachments.chop!.chop!
+      @inspection.save!
     end
 
 
