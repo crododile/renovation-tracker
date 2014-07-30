@@ -16,8 +16,15 @@
 #
 
 class Property < ActiveRecord::Base
-  has_many :currentunits,
+  # NB javascript population of drop down plucks unit numbers,
+  # erb version gets whole model from association
+  has_many :currentunits, -> {order "unit_number ASC"},
    :primary_key => "property",
    :foreign_key => "property",
    :class_name => "Currentunit"
+   
+   def unit_numbers
+     currentunits.order('unit_number ASC').uniq.pluck('unit_number')
+   end
+
 end

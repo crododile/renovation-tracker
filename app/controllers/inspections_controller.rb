@@ -25,7 +25,10 @@ class InspectionsController < ApplicationController
   
   def newtoo
     @inspection = @inspection.dup
-    @inspection.unit_number = nil
+    toNil = @inspection.attributes.keys - ["property", "inspector"]
+    toNil.each do |k|
+      @inspection[k] = nil
+    end
     render 'new'
   end
   
