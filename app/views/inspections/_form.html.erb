@@ -15,7 +15,6 @@
     <%= f.label :property %><br>
     <%= collection_select(:inspection, :property, Property.all, :property, :property, prompt: true)%>
   </div>
-	<script>propertyDropdownListener()</script>
 
   <div class="field" id="unit-dropdown">
     <%= f.label :unit_number %><br>
@@ -73,3 +72,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+<script>propertyDropdownListener(); fileUploadUI()</script>

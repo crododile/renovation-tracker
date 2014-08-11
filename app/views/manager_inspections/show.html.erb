@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Components:</strong>
+  <%= @manager_inspection.components %>
+</p>
+
+<p>
+  <strong>New countertop:</strong>
+  <%= @manager_inspection.new_countertop %>
+</p>
+
+<p>
+  <strong>Flooring:</strong>
+  <%= @manager_inspection.flooring %>
+</p>
+
+<p>
+  <strong>Appliances:</strong>
+  <%= @manager_inspection.appliances %>
+</p>
+
+<p>
+  <strong>Paint:</strong>
+  <%= @manager_inspection.paint %>
+</p>
+
+<p>
+  <strong>Rent ready:</strong>
+  <%= @manager_inspection.rent_ready %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @manager_inspection.property %>
+</p>
+
+<p>
+  <strong>Unit number:</strong>
+  <%= @manager_inspection.unit_number %>
+</p>
+
+<%= link_to 'Edit', edit_manager_inspection_path(@manager_inspection) %> |
+<%= link_to 'Back', manager_inspections_path %>

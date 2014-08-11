@@ -1,0 +1,8 @@
+<h1><%=@property%></h1>
+<% @units.each do |unit| %>
+	<div class="single-inspection" style="display:block">
+	<%= render 'form', :@manager_inspection => unit %>
+	</div>
+	<br><br><br>
+<% end %>
+<script>manager_inspection_scripts()</script>

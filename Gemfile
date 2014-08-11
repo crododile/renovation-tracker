@@ -37,6 +37,8 @@ gem 'aws-sdk'
 
 gem "figaro"
 
+gem 'rspec-rails', group: :test
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
