@@ -26,7 +26,6 @@ class InspectorsController < ApplicationController
   # POST /inspectors.json
   def create
     @inspector = Inspector.new(inspector_params)
-    debugger
 
     respond_to do |format|
       if @inspector.save

@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   
   resources :manager_inspections
 
-  resources :properties 
+  resources :properties do
+    get "compare", on: :member
+  end
   
   get 'mis/:property' => 'manager_inspections#manager_dashboard'
   

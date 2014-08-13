@@ -1,0 +1,15 @@
+<h1>Compare Inspections</h1>
+<div class="compare-left">
+	<h2>Inspection</h2>
+	<% @inspections.each do |insp| %>
+	<%= insp.unit_number %>
+	<%= insp.flooring %><br>
+	<% end %>
+</div>
+<div class="compare-right">
+	<h2>Manager Report</h2>
+	<% @manager_inspections.each do |insp| %>
+	<%= insp.unit_number %>
+	<%= insp.flooring %><br>
+	<% end %>
+</div>

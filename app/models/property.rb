@@ -26,5 +26,14 @@ class Property < ActiveRecord::Base
    def unit_numbers
      currentunits.order('unit_number ASC').uniq.pluck('unit_number')
    end
+   
+   def inspections
+     Inspection.where(property: property).order('unit_number ASC')
+   end
+   
+   def manager_inspections
+     ManagerInspection.where(property: property).order('unit_number ASC')
+   end
+
 
 end

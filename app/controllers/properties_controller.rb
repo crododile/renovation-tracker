@@ -1,34 +1,40 @@
 class PropertiesController < ApplicationController
   before_action :require_admin
-  before_action :set_property, only: [:show, :edit, :update, :destroy, :units]
+  before_action :set_property, only: [:compare, :show, :edit, :update, :destroy, :units]
 
-  # GET /properties
-  # GET /properties.json
+  def compare
+    unit_numbers = @property.unit_numbers.to_set
+    @manager_inspections = @property.manager_inspections.to_a
+    @inspections = @property.inspections.to_a
+    
+    debugger
+    filter = Proc.new do |arr|
+      arr.select!{|inspection| unit_numbers.include? inspection.unit_number }
+    end
+    
+    filter.call @manager_inspections
+    filter.call @inspections
+    render "compare"
+  end
+
   def index
     @properties = Property.all
   end
 
-  # GET /properties/1
-  # GET /properties/1.json
   def show
   end
   
   def units
-    render :json => @property.currentunits.order('unit_number ASC').uniq.pluck('unit_number')
+    render :json => @property.unit_numbers
   end
 
-
-  # GET /properties/new
   def new
     @property = Property.new
   end
 
-  # GET /properties/1/edit
   def edit
   end
 
-  # POST /properties
-  # POST /properties.json
   def create
     @property = Property.new(property_params)
 
@@ -43,8 +49,6 @@ class PropertiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /properties/1
-  # PATCH/PUT /properties/1.json
   def update
     respond_to do |format|
       if @property.update(property_params)
@@ -57,8 +61,6 @@ class PropertiesController < ApplicationController
     end
   end
 
-  # DELETE /properties/1
-  # DELETE /properties/1.json
   def destroy
     @property.destroy
     respond_to do |format|
@@ -68,12 +70,10 @@ class PropertiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_property
       @property = Property.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
       params[:property]
     end
