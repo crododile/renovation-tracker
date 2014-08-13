@@ -36,6 +36,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 
 gem "figaro"
+gem "devise"
 
 gem 'rspec-rails', group: :test
 

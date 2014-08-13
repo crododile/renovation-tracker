@@ -8,8 +8,19 @@ class ManagerInspectionsController < ApplicationController
   end
   
   def manager_dashboard
-    @property = params[:property].to_s
-    @units = ManagerInspection.where(property: params[:property]).order(:id)
+    property_name = params[:property].to_s
+    @property = Property.find_by_property(property_name)
+    @units = []
+    @property.unit_numbers.each do |num|
+      mi = ManagerInspection.
+        find_by_property_and_unit_number(property_name, num)
+      if mi
+        @units << mi 
+      else
+        @units << ManagerInspection.
+          create({property: property_name, unit_number: num})
+      end
+    end
     render "manager_dashboard"
   end
 

@@ -1,8 +1,9 @@
-<h1><%=@property%></h1>
-<% @units.each do |unit| %>
-	<div class="single-inspection" style="display:block">
-	<%= render 'form', :@manager_inspection => unit %>
-	</div>
-	<br><br><br>
-<% end %>
+<h1><%=@property.property + " unit progress "%></h1>
+<div class="inspections-container">
+	<% @units.each do |unit| %>
+		<div class="single-inspection">
+		<%= render 'form', :@manager_inspection => unit %>
+		</div>
+	<% end %>
+</div>
 <script>manager_inspection_scripts()</script>

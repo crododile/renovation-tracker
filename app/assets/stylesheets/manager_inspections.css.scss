@@ -3,7 +3,31 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .manager_inspection{
-	float: left;
+	display: inline;
+	margin: 10px;
+}
+
+.single-inspection{
+	margin-top: 3px;
+	-webkit-transition: background-color 1s;
+}
+
+.single-inspection:hover{
+	background-color: lightblue;
+};
+
+.inspections-container{
+	display:inline-block;
+	overflow: scroll;
+	white-space: nowrap;
+}
+
+button{
+	-webkit-transition: background-color .75s;
+}
+
+.pending{
+	background-color: yellow;
 }
 
 .updated{
