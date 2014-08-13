@@ -1,15 +1,24 @@
 <h1>Compare Inspections</h1>
-<div class="compare-left">
-	<h2>Inspection</h2>
-	<% @inspections.each do |insp| %>
-	<%= insp.unit_number %>
-	<%= insp.flooring %><br>
+	<h2 class="compare-left">
+		Unit Number
+	</h2>
+	<h2 class="compare-middle">
+		Inspection
+	</h2>
+	<h2 class="compare-right">
+		Manager Inspection
+	</h2>
+	<br>
+	<br>
+	<% @stack.each do |unit| %>
+		<div class="compare-right">
+			<%= unit.pop[:unit_number] %>
+		</div>
+		<div class="compare-middle">
+			<%= unit.pop[:unit_number] %>
+		</div>
+		<div class="compare-left">
+			<%= unit.pop %>
+		</div>
+		<br>
 	<% end %>
-</div>
-<div class="compare-right">
-	<h2>Manager Report</h2>
-	<% @manager_inspections.each do |insp| %>
-	<%= insp.unit_number %>
-	<%= insp.flooring %><br>
-	<% end %>
-</div>

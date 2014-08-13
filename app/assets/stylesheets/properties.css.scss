@@ -4,11 +4,17 @@
 .compare-right{
 	position:absolute;
 	right:0;
-	width:50%;
+	width:40%;
+}
+
+.compare-middle{
+	position:absolute;
+	right: 20%;
+	width: 40%;
 }
 
 .compare-left{
 	position:absolute;
 	left:0;
-	width:50%;
+	width:20%;
 }
