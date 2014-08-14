@@ -22,15 +22,18 @@ class PropertiesController < ApplicationController
     filter.call @manager_inspections
  #    filter.call @current_inspections
     
-    collector = Proc.new do |arr, num, collection|
-        collection << arr.shift
-    end
+    # collector = Proc.new do |arr, num, collection|
+#         collection << arr.shift
+#     end
     
     @unit_numbers.each do |num|
       hereArr = []
       hereArr << num
-      collector.call(@current_inspections, num, hereArr)
-      collector.call(@manager_inspections, num, hereArr)
+      hereArr << @current_inspections.shift
+      hereArr << @manager_inspections.shift
+      # collector.call(@current_inspections, num, hereArr)
+    #   collector.call(@manager_inspections, num, hereArr)
+    debugger if num == "204-301"
       if hereArr[-2][:id] == nil
         hereArr << "no-inspection"
       elsif hereArr[-2].eql_manager_inspection(hereArr[-1])
