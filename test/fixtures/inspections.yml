@@ -12,9 +12,10 @@
 #  created_at      :datetime
 #  updated_at      :datetime
 #  components      :boolean
-#  granite         :boolean
+#  new_countertop  :boolean
 #  flooring        :boolean
 #  appliances      :boolean
+#  paint           :boolean
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

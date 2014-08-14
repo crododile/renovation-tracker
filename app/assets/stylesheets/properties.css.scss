@@ -1,20 +1,43 @@
 // Place all the styles related to the Properties controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.mismatch{
+	background-color:red;
+}
+
+.no-inspection{
+	background-color: yellow;
+}
+
+.matches{
+	background-color: green;
+}
+
+.compare{
+	overflow: auto;
+  -webkit-transition: all 1s;
+     -moz-transition: all 1s;
+      -ie-transition: all 1s;
+       -o-transition: all 1s;
+          transition: all 1s;
+		border: 1px black dotted;
+}
+
+.compare:hover{
+	background-color:lightgreen;
+}
+
 .compare-right{
-	position:absolute;
-	right:0;
+	float:left;
 	width:40%;
 }
 
 .compare-middle{
-	position:absolute;
-	right: 20%;
+	float:left;
 	width: 40%;
 }
 
 .compare-left{
-	position:absolute;
-	left:0;
-	width:20%;
+	float:left;
+	width:10%;
 }

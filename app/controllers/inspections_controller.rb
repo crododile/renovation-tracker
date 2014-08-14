@@ -107,6 +107,6 @@ class InspectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inspection_params
-      params.require(:inspection).permit(:property, :unit_number, :inspector, :granite, :flooring, :components, :appliances, :inspection_date, :comments)
+      params.require(:inspection).permit(:property, :unit_number, :inspector, :new_countertop, :paint, :flooring, :components, :appliances, :inspection_date, :comments)
     end
 end

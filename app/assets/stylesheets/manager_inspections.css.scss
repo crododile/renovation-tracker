@@ -9,7 +9,11 @@
 
 .single-inspection{
 	margin-top: 3px;
-	-webkit-transition: background-color 1s;
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+      -ie-transition: all 1s ease;
+       -o-transition: all 1s ease;
+          transition: all 1s ease;
 }
 
 .single-inspection:hover{

@@ -5,31 +5,42 @@ class PropertiesController < ApplicationController
   def compare
     @unit_numbers = @property.unit_numbers.to_set
     @manager_inspections = @property.manager_inspections.to_a
-    @inspections = @property.inspections.to_a
+    @inspections = @property.current_inspections
+    
+    @current_inspections = []
     @stack = []
+    
+    @unit_numbers.each do |num|
+      in_we_go = @inspections.find_by_unit_number(num) || Inspection.new({unit_number: num})
+      @current_inspections << in_we_go
+    end
+    
     filter = Proc.new do |arr|
       arr.select!{|inspection| @unit_numbers.include? inspection.unit_number }
     end
-    
+ #
     filter.call @manager_inspections
-    filter.call @inspections
+ #    filter.call @current_inspections
     
     collector = Proc.new do |arr, num, collection|
-      if arr[0] && arr[0].unit_number == num
         collection << arr.shift
-      else
-        collection << {unit_number: num, inspections: "0"}
-      end
     end
     
     @unit_numbers.each do |num|
       hereArr = []
       hereArr << num
-      collector.call(@inspections, num, hereArr)
+      collector.call(@current_inspections, num, hereArr)
       collector.call(@manager_inspections, num, hereArr)
+      if hereArr[-2][:id] == nil
+        hereArr << "no-inspection"
+      elsif hereArr[-2].eql_manager_inspection(hereArr[-1])
+        hereArr << "matches"
+      else
+        hereArr << "mismatch"
+      end
+        
       @stack << hereArr 
     end
-    
     
     render "compare"
   end

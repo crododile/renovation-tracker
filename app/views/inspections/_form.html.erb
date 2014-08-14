@@ -15,7 +15,6 @@
     <%= f.label :property %><br>
     <%= collection_select(:inspection, :property, Property.all, :property, :property, prompt: true)%>
   </div>
-
   <div class="field" id="unit-dropdown">
     <%= f.label :unit_number %><br>
     <%= collection_select(:inspection, :unit_number, @inspection.neighbors, :unit_number, :unit_number, prompt: true)  %>
@@ -33,12 +32,12 @@
 		<%= f.radio_button :components, "", :style => "display: none;"%>
   </div>
   <div class="field">
-    <%= f.label :granite %><br>
+    <%= f.label :new_countertop %><br>
 		Yes
-		<%= f.radio_button :granite, true %>
+		<%= f.radio_button :new_countertop, true %>
 		NO
-		<%= f.radio_button :granite, false %>
-		<%= f.radio_button :granite, "", :style => "display: none;"%>
+		<%= f.radio_button :new_countertop, false %>
+		<%= f.radio_button :new_countertop, "", :style => "display: none;"%>
   </div>
   <div class="field">
     <%= f.label :flooring %><br>
@@ -55,6 +54,14 @@
 		NO
 		<%= f.radio_button :appliances, false %>
 		<%= f.radio_button :appliances, "", :style => "display: none;"%>
+  </div>
+  <div class="field">
+    <%= f.label :paint %><br>
+		Yes
+		<%= f.radio_button :paint, true %>
+		NO
+		<%= f.radio_button :paint, false %>
+		<%= f.radio_button :paint, "", :style => "display: none;"%>
   </div>
   <div class="field">
     <%= f.label :inspection_date %><br>

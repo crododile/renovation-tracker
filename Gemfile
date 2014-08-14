@@ -38,7 +38,7 @@ gem 'aws-sdk'
 gem "figaro"
 gem "devise"
 
-gem 'rspec-rails', group: :test
+gem 'rspec-rails', group: [:development, :test]
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

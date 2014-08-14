@@ -31,6 +31,10 @@ class Property < ActiveRecord::Base
      Inspection.where(property: property).order('unit_number ASC')
    end
    
+   def current_inspections
+     Inspection.where(property: property).order('unit_number ASC').order("updated_at DESC")
+   end
+   
    def manager_inspections
      ManagerInspection.where(property: property).order('unit_number ASC')
    end

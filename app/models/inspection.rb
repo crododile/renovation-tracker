@@ -12,10 +12,10 @@
 #  created_at      :datetime
 #  updated_at      :datetime
 #  components      :boolean
-#  granite         :boolean
+#  new_countertop  :boolean
 #  flooring        :boolean
 #  appliances      :boolean
-#
+#  paint           :boolean
 
 class Inspection < ActiveRecord::Base
   validates :property, presence: true
@@ -27,6 +27,15 @@ class Inspection < ActiveRecord::Base
   
   def neighbors
     Property.find_by_property(self.property ||= "Veridian").currentunits
+  end
+  
+  def eql_manager_inspection(manager_inspection)
+    wanted = attributes.keys - ["id","created_at", "updated_at", "inspector", "comments", "inspection_date", "attachments"]
+    wanted.each do |key|
+      p key
+      return false unless self[key] == manager_inspection[key]
+    end
+    true
   end
   
   def self.to_csv( options = {})
