@@ -1,11 +1,16 @@
 class SessionsController < ApplicationController
-  def newS
-  end
 
   def create
     session[:password] = params[:password]
     flash[:notice] = "Successfully logged in"
-    redirect_to root_url
+    if admin?
+      redirect_to root_url
+      return
+    elsif manager?
+      redirect_to "/mis/#{params[:password]}"
+      return
+    end
+    redirect_to new_session_url
   end
   
   def destroy

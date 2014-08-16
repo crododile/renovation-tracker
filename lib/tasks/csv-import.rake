@@ -63,7 +63,6 @@ task :csv_to_pg => :environment do
     "Property",
     "UnitCost"
   ]
-  
 
     relative_path = "../../assets/unitlist.csv"
     full_path = File.expand_path(relative_path, __FILE__)

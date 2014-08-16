@@ -7,9 +7,19 @@ class ApplicationController < ActionController::Base
     session[:password] == "covenant"
   end
   
+  def manager?
+    Property.find_by_property session[:password]
+  end
+
   def require_admin
     redirect_to new_session_url unless admin?
   end
-
-
+  
+  def validate_manager
+    unless params[:property] == session[:password]
+      redirect_to new_session_url
+    end
+  end
+  
+  
 end

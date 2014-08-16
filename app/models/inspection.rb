@@ -32,7 +32,6 @@ class Inspection < ActiveRecord::Base
   def eql_manager_inspection(manager_inspection)
     wanted = attributes.keys - ["id","created_at", "updated_at", "inspector", "comments", "inspection_date", "attachments"]
     wanted.each do |key|
-      p key
       return false unless self[key] == manager_inspection[key]
     end
     true

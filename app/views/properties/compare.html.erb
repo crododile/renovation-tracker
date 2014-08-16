@@ -19,20 +19,50 @@
 				<%= unit.shift %>
 			</div>
 			<div class="compare-middle">
-				<%= ci = unit.shift %>
-				<%= ci[:components] || "U" %>
-				<%= ci[:new_countertop] || "U" %>
-				<%= ci[:flooring]  || "U"%>
-				<%= ci[:appliances] || "U" %>
-				<%= ci[:paint] || "U" %>
+				<% ci = unit.shift %>
+				Comp:<% if ci[:components] == nil %>
+						 <%= "U" %>
+						 <% end %>
+						 <%= ci[:components] %>
+				Count:<% if ci[:new_countertop] == nil %>
+							<%= "U" %>
+							<% end %>
+							<%= ci[:new_countertop] %>
+				Floor:<% if ci[:flooring] == nil %>
+							<%= "U" %>
+							<% end %>
+							<%= ci[:flooring]  %>
+				Appli:<% if ci[:appliances] == nil %>
+					<%= "U" %>
+					<% end %>
+					<%= ci[:appliances] %>
+				Paint:<% if ci[:paint] == nil %>
+					<%= "U" %>
+					<%end %>
+					<%= ci[:paint] %>
 			</div>
 			<div class="compare-right">
-				<%= mi = unit.shift %>
-				<%= mi[:components]  || "U"%>
-				<%= mi[:new_countertop]  || "U"%>
-				<%= mi[:flooring]  || "U"%>
-				<%= mi[:appliances]  || "U"%>
-				<%= mi[:paint] || "U" %>
+				<% mi = unit.shift %>
+				Comp:<% if mi[:components]  == nil %>
+					<%= "U" %>
+					<%end %>
+					<%= mi[:components] %>
+				Count:<% if mi[:new_countertop]  == nil %>
+					<%= "U" %>
+					<% end %>
+					<%= mi[:new_countertop] %>
+				Floor:<% if mi[:flooring]  == nil %>
+					<%= "U" %>
+					<% end %>
+					<%= mi[:flooring] %>
+			  Appli:<% if mi[:appliances]  == nil %>
+					<%= "U" %>
+					<% end %>
+					<%= mi[:appliances] %>
+				Paint:<% if mi[:paint] == nil %>
+					<%= "U" %>
+					<% end %>
+					<%= mi[:paint] %>
 			</div>
 		</div>
 	<% end %>

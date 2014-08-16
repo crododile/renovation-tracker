@@ -2,7 +2,6 @@
   <% if @inspection.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@inspection.errors.count, "error") %> prohibited this inspection from being saved:</h2>
-
       <ul>
       <% @inspection.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,7 +9,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field" id="property-dropdown">
     <%= f.label :property %><br>
     <%= collection_select(:inspection, :property, Property.all, :property, :property, prompt: true)%>
@@ -25,43 +23,23 @@
   </div>
   <div class="field">
     <%= f.label :components %><br>
-		Yes
-		<%= f.radio_button :components, true %>
-		NO
-		<%= f.radio_button :components, false %>
-		<%= f.radio_button :components, "", :style => "display: none;"%>
+		<%= f.check_box :components %>
   </div>
   <div class="field">
     <%= f.label :new_countertop %><br>
-		Yes
-		<%= f.radio_button :new_countertop, true %>
-		NO
-		<%= f.radio_button :new_countertop, false %>
-		<%= f.radio_button :new_countertop, "", :style => "display: none;"%>
+		<%= f.check_box :new_countertop %>
   </div>
   <div class="field">
     <%= f.label :flooring %><br>
-		Yes
-		<%= f.radio_button :flooring, true %>
-		NO
-		<%= f.radio_button :flooring, false %>
-		<%= f.radio_button :flooring, "", :style => "display: none;"%>
+		<%= f.check_box :flooring %>
   </div>
   <div class="field">
     <%= f.label :appliances %><br>
-		Yes
-		<%= f.radio_button :appliances, true %>
-		NO
-		<%= f.radio_button :appliances, false %>
-		<%= f.radio_button :appliances, "", :style => "display: none;"%>
+		<%= f.check_box :appliances %>
   </div>
   <div class="field">
     <%= f.label :paint %><br>
-		Yes
-		<%= f.radio_button :paint, true %>
-		NO
-		<%= f.radio_button :paint, false %>
-		<%= f.radio_button :paint, "", :style => "display: none;"%>
+		<%= f.check_box :paint %>
   </div>
   <div class="field">
     <%= f.label :inspection_date %><br>
@@ -73,7 +51,7 @@
   </div>
 	<div id="image-field" class="field">
 	  <%= f.label :image %><br>
-		<%= f.file_field :image, :accept => "image/*", :multiple => true%>
+		<%= f.file_field :image, :accept => "image/*", :multiple => true %>
 	</div>
   <div class="actions">
     <%= f.submit %>

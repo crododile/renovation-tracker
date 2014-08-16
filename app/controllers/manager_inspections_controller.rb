@@ -1,8 +1,7 @@
 class ManagerInspectionsController < ApplicationController
+  before_action :validate_manager, only: [:manager_dashboard]
   before_action :set_manager_inspection, only: [:show, :edit, :update, :destroy]
 
-  # GET /manager_inspections
-  # GET /manager_inspections.json
   def index
     @manager_inspections = ManagerInspection.all
   end
