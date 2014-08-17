@@ -26,6 +26,7 @@ class PropertiesController < ApplicationController
       hereArr << num
       hereArr << @current_inspections.shift
       hereArr << @manager_inspections.shift
+
       # collector.call(@current_inspections, num, hereArr)
     #   collector.call(@manager_inspections, num, hereArr)
       if hereArr[-2][:id] == nil

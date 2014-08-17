@@ -1,4 +1,4 @@
-<h1>Compare Inspections</h1>
+<h1>Compare Inspections for <%=@property.property %></h1>
 
 	<h2 class="compare-left">
 		Unit Number
@@ -20,6 +20,11 @@
 			</div>
 			<div class="compare-middle">
 				<% ci = unit.shift %>
+				<% if ci[:id] %>
+				<%= link_to "Show Covenant Inspection", inspection_path(ci) %>
+				<% else %>
+				<%= "No Covenant Inspection" %>
+				<% end %>
 				Comp:<% if ci[:components] == nil %>
 						 <%= "U" %>
 						 <% end %>
@@ -43,6 +48,7 @@
 			</div>
 			<div class="compare-right">
 				<% mi = unit.shift %>
+				<%= link_to "Show Manager Inspection", manager_inspection_path(mi)%>
 				Comp:<% if mi[:components]  == nil %>
 					<%= "U" %>
 					<%end %>
