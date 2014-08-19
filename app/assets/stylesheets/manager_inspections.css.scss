@@ -2,9 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.manager_inspection{
-	display: inline;
-	margin: 10px;
+.manager-inspection{
+	display: inline-block;
+	width: 10%;
+}
+
+.manager-inspection-col-name{
+	display: inline-block;
+	width: 10%;
 }
 
 .single-inspection{
@@ -26,8 +31,12 @@
 	white-space: nowrap;
 }
 
-button{
-	-webkit-transition: background-color .75s;
+.matches{
+	background-color: green;
+}
+
+.mismatch{
+	background-color: red;
 }
 
 .pending{

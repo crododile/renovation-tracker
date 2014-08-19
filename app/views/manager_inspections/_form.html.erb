@@ -1,41 +1,34 @@
 <%= form_for(@manager_inspection) do |f| %>
-  <% if @manager_inspection.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@manager_inspection.errors.count, "error") %> prohibited this manager_inspection from being saved:</h2>
-
-      <ul>
-      <% @manager_inspection.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="manager_inspection field">
-    <%= f.label :unit_number %>
+  <div class="manager-inspection field">
     <%= @manager_inspection.unit_number %>
   </div>
-  <div class="manager_inspection field">
-    <%= f.label :components %>
+  <div class="manager-inspection field  <%=@manager_inspection.get_css_by_agreement(:components,@manager_inspection.most_recent_covenant_inspection)%>">
     <%= f.check_box :components %>
   </div>
-  <div class="manager_inspection field">
-    <%= f.label :new_countertop %>
+  <div class="manager-inspection field <%=@manager_inspection.get_css_by_agreement(:new_countertop,@manager_inspection.most_recent_covenant_inspection)%>">
     <%= f.check_box :new_countertop %>
   </div>
-  <div class="manager_inspection field">
-    <%= f.label :flooring %>
+  <div class="manager-inspection field <%=@manager_inspection.get_css_by_agreement(:flooring,@manager_inspection.most_recent_covenant_inspection)%>">
     <%= f.check_box :flooring %>
   </div>
-  <div class="manager_inspection field">
-    <%= f.label :appliances %>
+  <div class="manager-inspection field <%=@manager_inspection.get_css_by_agreement(:appliances,@manager_inspection.most_recent_covenant_inspection)%>">
     <%= f.check_box :appliances %>
   </div>
-  <div class="manager_inspection field">
-    <%= f.label :paint %>
+  <div class="manager-inspection field <%=@manager_inspection.get_css_by_agreement(:paint,@manager_inspection.most_recent_covenant_inspection)%>">
     <%= f.check_box :paint %>
   </div>
-  <div class="manager_inspection field">
-    <%= f.label :rent_ready %>
+  <div class="manager-inspection field 
     <%= f.check_box :rent_ready %>
   </div>
+	<div class="manager-inspection">
+		<% if @manager_inspection.most_recent_covenant_inspection %>
+		<%= @manager_inspection.most_recent_covenant_inspection.comments %>
+		<% end %>
+	</div>
+	<div class="manager-inspection">
+		<% if @manager_inspection.most_recent_covenant_inspection %>
+		<a href="<%=@manager_inspection.most_recent_covenant_inspection.attachments%>"
+			>Pic</a>
+		<% end %>
+	</div>
 <% end %>

@@ -1,5 +1,14 @@
 <h1><%=@property.property + " unit progress "%></h1>
-<div class="inspections-container">
+<div clas="inspections-container">
+  <div class="manager-inspection-col-name">Unit number</div>
+  <div class="manager-inspection-col-name">Components</div>
+	<div class="manager-inspection-col-name">New Countertop</div>
+	<div class="manager-inspection-col-name">Flooring</div>
+	<div class="manager-inspection-col-name">Appliances</div>
+	<div class="manager-inspection-col-name">Paint</div>
+	<div class="manager-inspection-col-name">Rent Ready</div>
+  <div class="manager-inspection-col-name">Comments</div>
+	<div class="manager-inspection-col-name">Has Attachments</div>
 	<% @units.each do |unit| %>
 		<div class="single-inspection">
 		<%= render 'form', :@manager_inspection => unit %>
@@ -7,20 +16,3 @@
 	<% end %>
 </div>
 <script>manager_inspection_scripts()</script>
-<script>
-$(document).ready(function(){
-	$(".edit_manager_inspection").on("change", 
-	"input:checkbox", function(event){
-		var $form = $(event.target.parentElement.parentElement)
-		$.ajax({
-			type: "POST",
-			url: $form.attr("action"), 
-			data: $form.serialize(), // serializes the form's elements.
-			success: function(data) {
-				console.log(data); // show response from the server. (use the developer toolbar console, firefox firebug or chrome inspector console)
-			}
-		});
-	});
-});
-
-</script>

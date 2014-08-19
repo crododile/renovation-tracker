@@ -10,9 +10,9 @@ class ManagerInspectionsController < ApplicationController
     property_name = params[:property].to_s
     @property = Property.find_by_property(property_name)
     @units = []
+    inspectionsRelation = ManagerInspection.where(property: property_name)
     @property.unit_numbers.each do |num|
-      mi = ManagerInspection.
-        find_by_property_and_unit_number(property_name, num)
+      mi = inspectionsRelation.find_by_unit_number(num)
       if mi
         @units << mi 
       else

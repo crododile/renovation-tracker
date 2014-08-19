@@ -1,20 +1,15 @@
-var manager_inspection_scripts = function(){
-	$('form').submit(function(event){
-		event.preventDefault();
-	  var valuesToSubmit = $(this).serialize();
-		var $targetDiv = $(event.target);
-		$targetDiv.find("button").removeClass("updated");
+var manager_inspection_scripts = function () {
+	$(".edit_manager_inspection").on("change", 
+	"input:checkbox", function (event) {
+		var $form = $(event.target.parentElement.parentElement)
 		$.ajax({
-		   url: $(this).attr('action'),
-		   data: valuesToSubmit,
-			 type: "POST",
-		   dataType: "JSON" 
-		}).success(function(json){
-  	 $targetDiv.find("button").addClass("pending");
-		 setTimeout(
-			 function(){$targetDiv.find("button").addClass("updated")}, 250
-		 );
+			type: "POST",
+			url: $form.attr("action"), 
+			data: $form.serialize(), 
+			dataType: "JSON",
+			success: function (data) {
+				console.log(data); 
+			}
 		});
-		return false; // prevents normal behaviour
-	});
+	});	
 }
