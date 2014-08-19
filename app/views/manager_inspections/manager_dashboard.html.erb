@@ -7,3 +7,20 @@
 	<% end %>
 </div>
 <script>manager_inspection_scripts()</script>
+<script>
+$(document).ready(function(){
+	$(".edit_manager_inspection").on("change", 
+	"input:checkbox", function(event){
+		var $form = $(event.target.parentElement.parentElement)
+		$.ajax({
+			type: "POST",
+			url: $form.attr("action"), 
+			data: $form.serialize(), // serializes the form's elements.
+			success: function(data) {
+				console.log(data); // show response from the server. (use the developer toolbar console, firefox firebug or chrome inspector console)
+			}
+		});
+	});
+});
+
+</script>
