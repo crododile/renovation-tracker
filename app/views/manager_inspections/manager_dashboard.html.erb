@@ -7,8 +7,9 @@
 	<div class="manager-inspection-col-name">Appliances</div>
 	<div class="manager-inspection-col-name">Paint</div>
 	<div class="manager-inspection-col-name">Rent Ready</div>
-  <div class="manager-inspection-col-name">Comments</div>
-	<div class="manager-inspection-col-name">Has Attachments</div>
+	<div class="manager-inspection-col-name">Pictures</div>
+  <div class="manager-inspection-col-name">Covenant Comments</div>
+
 	<% @units.each do |unit| %>
 		<div class="single-inspection">
 		<%= render 'form', :@manager_inspection => unit %>

@@ -37,6 +37,10 @@ class Inspection < ActiveRecord::Base
     true
   end
   
+  def extract_links
+    attachments.split(",")
+  end
+  
   def self.to_csv( options = {})
     CSV.generate( options ) do |csv|
       wanted = column_names - ["created_at", "updated_at"]
