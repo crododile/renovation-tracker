@@ -24,8 +24,9 @@ class ManagerInspection < ActiveRecord::Base
   end
   
   def get_css_by_agreement(attribute, covenant_inspection)
+    return "" if !self[attribute]
     return "pending" if !covenant_inspection
-    return "matches" if self[attribute] == covenant_inspection[attribute]
-    return "mismatch" if self[attribute] != covenant_inspection[attribute]
+    return "matches" if covenant_inspection[attribute] == true
+    return "mismatch" if  !covenant_inspection[attribute]
   end
 end
