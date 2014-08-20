@@ -17,7 +17,7 @@
   <div class="manager-inspection field <%=@manager_inspection.get_css_by_agreement(:paint,@manager_inspection.most_recent_covenant_inspection)%>">
     <%= f.check_box :paint %>
   </div>
-  <div class="manager-inspection field 
+  <div class="manager-inspection field">
     <%= f.check_box :rent_ready %>
   </div>
 	<div class="manager-inspection">
@@ -27,8 +27,7 @@
 	</div>
 	<div class="manager-inspection">
 		<% if @manager_inspection.most_recent_covenant_inspection %>
-		<a href="<%=@manager_inspection.most_recent_covenant_inspection.attachments%>"
-			>Pic</a>
-		<% end %>
+			<%= @manager_inspection.most_recent_covenant_inspection.attachments %>
+	<% end %>
 	</div>
 <% end %>
