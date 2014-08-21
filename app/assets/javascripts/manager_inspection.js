@@ -8,6 +8,7 @@ var manager_inspection_scripts = function () {
 		var myfunc = function(data){
 			$containingDiv.removeClass("matches");
 			$containingDiv.removeClass("mismatch");
+			$containingDiv.removeClass("pending");
 			$containingDiv.addClass(data["css"])
 		};
 		
