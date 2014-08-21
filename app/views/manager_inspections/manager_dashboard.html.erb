@@ -1,22 +1,24 @@
 <h1><%=@property.property + " unit progress "%></h1>
-<div class="container-fluid">
-<div class="row">
-  <div class="col-xs-1">Unit number</div>
-  <div class="col-xs-1">Components</div>
-	<div class="col-xs-1">New Countertop</div>
-	<div class="col-xs-1">Flooring</div>
-	<div class="col-xs-1">Appliances</div>
-	<div class="col-xs-1">Paint</div>
-	<div class="col-xs-1">Rent Ready</div>
-	<div class="col-xs-1">Pictures</div>
-  <div class="col-xs-4">Covenant Comments</div>
-</div>
-<br>
-	<% @units.each do |unit| %>
+<div class="container-container">
+	<div class="container-fluid">
 		<div class="row">
-			<%= render 'form', :@manager_inspection => unit %>
+		  <div class="col-xs-1">Unit number</div>
+		  <div class="col-xs-1">Components</div>
+			<div class="col-xs-1">New Countertop</div>
+			<div class="col-xs-1">Flooring</div>
+			<div class="col-xs-1">Appliances</div>
+			<div class="col-xs-1">Paint</div>
+			<div class="col-xs-1">Rent Ready</div>
+			<div class="col-xs-1">Pictures</div>
+		  <div class="col-xs-4">Covenant Comments</div>
 		</div>
-	<% end %>
-</div>
+		<br>
+			<% @units.each do |unit| %>
+				<div class="row">
+					<%= render 'form', :@manager_inspection => unit %>
+				</div>
+			<% end %>
+		</div>
+	</div>
 </div>
 <script>manager_inspection_scripts()</script>
