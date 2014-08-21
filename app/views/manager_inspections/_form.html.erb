@@ -1,26 +1,26 @@
 <%= form_for(@manager_inspection) do |f| %>
-  <div class="manager-inspection field">
+  <div class="col-xs-1 field">
     <%= @manager_inspection.unit_number %>
   </div>
-  <div class="manager-inspection field  <%=@manager_inspection.get_css_by_agreement(:components,@manager_inspection.most_recent_covenant_inspection)%>">
+  <div class="col-xs-1 field  <%=@manager_inspection.get_css_by_agreement(:components,@manager_inspection.most_recent_covenant_inspection)%>">
     <%= f.check_box :components %>
   </div>
-  <div class="manager-inspection field <%=@manager_inspection.get_css_by_agreement(:new_countertop,@manager_inspection.most_recent_covenant_inspection)%>">
+  <div class="col-xs-1 field <%=@manager_inspection.get_css_by_agreement(:new_countertop,@manager_inspection.most_recent_covenant_inspection)%>">
     <%= f.check_box :new_countertop %>
   </div>
-  <div class="manager-inspection field <%=@manager_inspection.get_css_by_agreement(:flooring,@manager_inspection.most_recent_covenant_inspection)%>">
+  <div class="col-xs-1 field <%=@manager_inspection.get_css_by_agreement(:flooring,@manager_inspection.most_recent_covenant_inspection)%>">
     <%= f.check_box :flooring %>
   </div>
-  <div class="manager-inspection field <%=@manager_inspection.get_css_by_agreement(:appliances,@manager_inspection.most_recent_covenant_inspection)%>">
+  <div class="col-xs-1 field <%=@manager_inspection.get_css_by_agreement(:appliances,@manager_inspection.most_recent_covenant_inspection)%>">
     <%= f.check_box :appliances %>
   </div>
-  <div class="manager-inspection field <%=@manager_inspection.get_css_by_agreement(:paint,@manager_inspection.most_recent_covenant_inspection)%>">
+  <div class="col-xs-1 field <%=@manager_inspection.get_css_by_agreement(:paint,@manager_inspection.most_recent_covenant_inspection)%>">
     <%= f.check_box :paint %>
   </div>
-  <div class="manager-inspection field">
+  <div class="col-xs-1 field">
     <%= f.check_box :rent_ready %>
   </div>
-	<div class="manager-inspection">
+	<div class="col-xs-1">
 		<% if @manager_inspection.most_recent_covenant_inspection %>
 			<%@manager_inspection.most_recent_covenant_inspection.attachments &&
 				@manager_inspection.most_recent_covenant_inspection.
@@ -30,7 +30,7 @@
 			<% end %>
 	<% end %>
 	</div>
-	<div class="manager-inspection">
+	<div class="col-xs-4">
 		<% if @manager_inspection.most_recent_covenant_inspection %>
 		<%= @manager_inspection.most_recent_covenant_inspection.comments %>
 		<% end %>

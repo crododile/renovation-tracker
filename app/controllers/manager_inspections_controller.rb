@@ -57,9 +57,12 @@ class ManagerInspectionsController < ApplicationController
   # PATCH/PUT /manager_inspections/1.json
   def update
     respond_to do |format|
+      @manager_inspection.attributes = manager_inspection_params
+      changed = @manager_inspection.changed[0]
+      css = @manager_inspection.get_css_by_agreement(changed)
       if @manager_inspection.update(manager_inspection_params)
         format.html { redirect_to @manager_inspection, notice: 'Manager inspection was successfully updated.' }
-        format.json { render json: @manager_inspection, status: :ok, location: @manager_inspection }
+        format.json { render json: {changed: changed, css: css }, status: :ok, location: @manager_inspection }
       else
         format.html { render :edit }
         format.json { render json: @manager_inspection.errors, status: :unprocessable_entity }

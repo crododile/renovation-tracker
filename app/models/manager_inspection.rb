@@ -23,7 +23,7 @@ class ManagerInspection < ActiveRecord::Base
     Inspection.where(property: property).where(unit_number: unit_number).order("updated_at DESC").first
   end
   
-  def get_css_by_agreement(attribute, covenant_inspection)
+  def get_css_by_agreement(attribute, covenant_inspection= most_recent_covenant_inspection)
     return "" if !self[attribute]
     return "pending" if !covenant_inspection
     return "matches" if covenant_inspection[attribute] == true
