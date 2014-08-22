@@ -20,7 +20,6 @@ class ManagerInspectionsController < ApplicationController
           create({property: property_name, unit_number: num})
       end
     end
-    render "manager_dashboard"
   end
 
   # GET /manager_inspections/1
