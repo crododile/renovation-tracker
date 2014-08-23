@@ -2,6 +2,7 @@ class PropertiesController < ApplicationController
   before_action :require_admin
   before_action :set_property, only: [:compare, :show, :edit, :update, :destroy, :units]
 
+  #this is not really used, go to manager_inspection dashboard
   def compare
     @unit_numbers = @property.unit_numbers.to_set
     @manager_inspections = @property.manager_inspections.to_a
