@@ -24,7 +24,8 @@ class Property < ActiveRecord::Base
    :class_name => "Currentunit"
    
    def unit_numbers
-     currentunits.order('unit_number ASC').uniq.pluck('unit_number')
+     currentunits.order('unit_number ASC').uniq.pluck('unit_number').
+       sort {|x,y| x.to_i <=> y.to_i }
    end
    
    def inspections
