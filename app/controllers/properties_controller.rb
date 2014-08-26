@@ -1,6 +1,23 @@
 class PropertiesController < ApplicationController
-  before_action :require_admin
-  before_action :set_property, only: [:compare, :show, :edit, :update, :destroy, :units]
+  before_action :require_admin, except: [:walklist]
+  before_action :set_property, only: [:walklist, :compare, :show, :edit, :update, :destroy, :units]
+  
+  def walklist
+    @manager_inspections = @property.walklist
+    respond_to do |format|
+      format.csv { send_data Property.collection_csv(@manager_inspections) }
+      format.xls { send_data Property.collection_csv(@manager_inspections, {col_sep: "\t"} )}
+    end
+  end
+  
+  def masterWalklist
+    @manager_inspections = Property.masterWalklist
+    respond_to do |format|
+      format.csv { send_data Property.collection_csv(@manager_inspections) }
+      format.xls { send_data Property.collection_csv(@manager_inspections, {col_sep: "\t"} )}
+    end
+  end
+
 
   #this is not really used, go to manager_inspection dashboard
   def compare
@@ -29,7 +46,8 @@ class PropertiesController < ApplicationController
       hereArr << @manager_inspections.shift
 
       # collector.call(@current_inspections, num, hereArr)
-    #   collector.call(@manager_inspections, num, hereArr)
+      # collector.call(@manager_inspections, num, hereArr)
+      
       if hereArr[-2][:id] == nil
         hereArr << "no-inspection"
       elsif hereArr[-2].eql_manager_inspection(hereArr[-1])

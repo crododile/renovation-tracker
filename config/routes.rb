@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   resources :properties do
     get "compare", on: :member
+    get "walklist", on: :member
+    get "masterWalklist", on: :collection
   end
   
   get 'mis/:property' => 'manager_inspections#manager_dashboard'

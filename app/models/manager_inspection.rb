@@ -17,7 +17,14 @@
 #
 
 class ManagerInspection < ActiveRecord::Base
-  belongs_to :currentunit
+  
+  MATCHER_ATTRIBUTES = [
+    "components",
+    "new_countertop",
+    "flooring",
+    "appliances",
+    "paint"
+  ]
   
   def most_recent_covenant_inspection
     Inspection.where(property: property).where(unit_number: unit_number).order("updated_at DESC").first
@@ -28,5 +35,13 @@ class ManagerInspection < ActiveRecord::Base
     return "pending" if !covenant_inspection
     return "matches" if covenant_inspection[attribute] == true
     return "mismatch" if  !covenant_inspection[attribute]
+  end
+  
+  def match_data
+    match_data = []
+    MATCHER_ATTRIBUTES.each do |att|
+      match_data << get_css_by_agreement(att)
+    end
+    match_data
   end
 end

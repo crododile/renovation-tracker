@@ -38,6 +38,36 @@ class Property < ActiveRecord::Base
    def manager_inspections
      ManagerInspection.where(property: property).order('unit_number ASC')
    end
-
+   
+   def walklist
+     walks = []
+     manager_inspections.each do |insp|
+       if insp.match_data.include? "mismatch"
+         walks << insp
+       end
+     end
+     walks
+   end
+   
+   def self.masterWalklist
+     walks = []
+     ManagerInspection.all.each do |insp|
+       if insp.match_data.include? "mismatch"
+         walks << insp
+       end
+     end
+     walks
+   end
+   
+   def self.collection_csv(collection, options = {})
+     CSV.generate( options ) do |csv|
+       wanted = ManagerInspection.column_names - ["created_at", "updated_at", "property", "unit_number"]
+       wanted.unshift("unit_number").unshift("property")
+       csv << wanted
+       collection.each do |inspection|
+         csv << inspection.attributes.values_at(*wanted)
+       end
+     end
+   end
 
 end
