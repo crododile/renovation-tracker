@@ -1,5 +1,9 @@
 <h1><%=@property.property + " unit progress "%></h1>
+<p>
+	Download Walk List:
 	<%= link_to "CSV", walklist_property_path(@property, format: "csv")%> 
+	<%= link_to "Excel", walklist_property_path(@property, format: "xls")%> 
+</p>
 
 <div class="container-container">
 	<div class="container-fluid">
