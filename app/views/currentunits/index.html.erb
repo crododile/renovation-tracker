@@ -1,6 +1,11 @@
 <h1>Manage Current Units</h1>
 <p>
-	Download: 
+
+	Download Master Walk List:
+	<%= link_to "CSV", masterWalklist_properties_path(format: "csv") %>
+	<%= link_to "Excel", masterWalklist_properties_path(format: "xls") %>
+	
+	Download Units Table: 
 	<%= link_to "CSV", currentunits_path(format: "csv")%> 
 	<%= link_to "Excel", currentunits_path(format: "xls")%> 
 
@@ -14,7 +19,3 @@
 <% end %>
 </p>
 
-
-Download Master Walk List:
-<%= link_to "CSV", masterWalklist_properties_path(format: "csv") %>
-<%= link_to "Excel", masterWalklist_properties_path(format: "xls") %>
