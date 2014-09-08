@@ -18,7 +18,6 @@ class PropertiesController < ApplicationController
     end
   end
 
-
   #this is not really used, go to manager_inspection dashboard
   def compare
     @unit_numbers = @property.unit_numbers.to_set

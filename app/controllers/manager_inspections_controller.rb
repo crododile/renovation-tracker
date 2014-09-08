@@ -4,6 +4,10 @@ class ManagerInspectionsController < ApplicationController
 
   def index
     @manager_inspections = ManagerInspection.all
+    respond_to do |format|
+      format.csv { send_data Property.collection_csv(@manager_inspections) }
+      format.xls { send_data Property.collection_csv(@manager_inspections, {col_sep: "\t"} )}
+    end
   end
   
   def manager_dashboard
