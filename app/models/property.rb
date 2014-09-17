@@ -43,7 +43,7 @@ class Property < ActiveRecord::Base
    def walklist
      walks = []
      manager_inspections.each do |insp|
-       if insp.match_data.include? "mismatch"
+       if (insp.match_data & ["mismatch", "pending"]).any?
          walks << insp
        end
      end
@@ -53,7 +53,7 @@ class Property < ActiveRecord::Base
    def self.masterWalklist
      walks = []
      ManagerInspection.all.each do |insp|
-       if insp.match_data.include? "mismatch"
+       if (insp.match_data & ["mismatch", "pending"]).any?
          walks << insp
        end
      end
