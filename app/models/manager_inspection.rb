@@ -27,7 +27,7 @@ class ManagerInspection < ActiveRecord::Base
   ]
   
   def most_recent_covenant_inspection
-    Inspection.where(property: property).where(unit_number: unit_number).order("updated_at DESC").first
+    Inspection.where(property: property).where(unit_number: unit_number).order("inspection_date DESC").first
   end
   
   def get_css_by_agreement(attribute, covenant_inspection= most_recent_covenant_inspection)
