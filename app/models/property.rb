@@ -33,7 +33,7 @@ class Property < ActiveRecord::Base
    end
    
    def current_inspections
-     Inspection.where(property: property).order('unit_number ASC').order("updated_at DESC").select("DISTINCT ON (unit_number) *")
+     Inspection.where(property: property).order('unit_number ASC').order("inspection_date DESC").select("DISTINCT ON (unit_number) *")
    end
    
    def manager_inspections
