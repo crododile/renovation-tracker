@@ -4,11 +4,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   def admin?
-    session[:password] == "covenant"
+    session[:password] == "covenant" || john?
+  end
+  
+  def john?
+    session[:password] == "kirkman"
   end
   
   def manager?
     Property.find_by_property session[:password]
+  end
+  
+  def require_john
+    redirect_to new_session_url unless john?
   end
 
   def require_admin

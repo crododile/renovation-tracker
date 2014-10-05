@@ -1,5 +1,5 @@
 class CurrentunitsController < ApplicationController
-  before_action :require_admin
+  before_action :require_john
   before_action :set_currentunit, only: [:show, :edit, :update, :destroy]
 
   # GET /currentunits
