@@ -1,9 +1,10 @@
 var propertyDropdownListener = function(){
 document.addEventListener("page:change", function () {	
 	var drop = document.getElementById("property-dropdown");
-	drop.onchange = function () {
-		var propertyId = event.target.selectedIndex;
-		var targetUrl = "/property_units/" + propertyId + ".json";
+	drop.onchange = function (event) {
+    // var propertyId = event.target.selectedIndex;
+    var property = $(event.target).val();
+		var targetUrl = "/property_units/" + property + ".json";
 		function loadXMLDoc(url) {
 		    var xmlhttp;
 		    if (window.XMLHttpRequest) {

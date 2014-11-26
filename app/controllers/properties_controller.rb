@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :require_admin, except: [:walklist]
-  before_action :set_property, only: [:walklist, :compare, :show, :edit, :update, :destroy, :units]
+  before_action :set_property, only: [:walklist, :compare, :show, :edit, :update, :destroy]
   
   def walklist
     @manager_inspections = @property.walklist
@@ -69,6 +69,7 @@ class PropertiesController < ApplicationController
   end
   
   def units
+    @property = Property.find_by(property: params[:property])
     render :json => @property.unit_numbers
   end
 

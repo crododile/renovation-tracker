@@ -24,6 +24,6 @@ Rails.application.routes.draw do
   get 'mis/:property' => 'manager_inspections#manager_dashboard'
   
   #for populating dropdown
-  get 'property_units/:id' => 'properties#units'
+  get 'property_units/:property' => 'properties#units'
 
 end
